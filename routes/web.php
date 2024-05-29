@@ -12,3 +12,5 @@ Route::get('/article', [ArticleController::class, 'liste_article']);
 Route::get('/ajouter', [ArticleController::class, 'ajouter_article']);
 
 Route::get('/ajouter/traitement',[ArticleController::class,'ajouter_article_traitement']);
+
+Route::get('/delete/{id}',[ArticleController::class,'delete_article']);
