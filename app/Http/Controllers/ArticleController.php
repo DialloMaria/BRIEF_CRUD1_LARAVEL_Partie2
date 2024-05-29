@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
     public function liste_article(){
-        $article = Article::all();
-        return view('/article.article');
+        $articles = Article::all();
+        return view('/article.article' , compact('articles'));
     }
 
     public function ajouter_article(){
