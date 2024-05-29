@@ -23,7 +23,6 @@ class ArticleController extends Controller
             $article->nom = $request->nom;
             $article->description = $request->description;
             $article->a_la_une = $request->a_la_une;
-            // $article->nom = $request->nom;
             $article->save();
      
      
@@ -38,4 +37,24 @@ class ArticleController extends Controller
     
             return redirect('/article');
         }  
+
+
+     public function update_article($id){
+        $article= Article::find($id);
+        return view('/article.update', compact('article'));
+    
+     }
+
+     public function update_article_traitement(Request $request){
+
+        $article= Article::find($request->id);
+        $article->image = $request->image;
+        $article->nom = $request->nom;
+        $article->description = $request->description;
+        $article->a_la_une = $request->a_la_une;
+
+        $article->update();
+
+        return redirect('/article');
+     }
 }
